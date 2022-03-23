@@ -1,0 +1,972 @@
+/*
+Theme Name: CobaltBlue - Graphene
+Author: Golem
+Author URI: https://golem.network/
+Description: Graphene web page template.
+Version: 1.0
+License: Commercial
+Text Domain: Graphene
+Tags: Graphene, Golem
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Mada:400,500,600,700,900');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+html {
+    font-family: 'Mada', sans-serif;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    margin: 0;
+    font-family: 'Mada', sans-serif;
+    text-rendering: optimizeLegibility;
+    background-color: #000;
+    color: #fff;
+}
+
+#wpadminbar {
+    position: fixed;
+}
+
+.graphene-hidden {
+    display: none;
+}
+
+.graphene-blue {
+    color: #2194c3;
+}
+
+.graphene-white {
+    color: #ffffff;
+}
+
+.graphene-spacer-50 {
+    margin-bottom: 50px;
+}
+
+.graphene-spacer-100 {
+    margin-bottom: 100px;
+}
+
+.graphene-spacer-150 {
+    margin-bottom: 150px;
+}
+
+.wordwrap {
+    white-space: pre-wrap;      /* CSS3 */
+    white-space: -moz-pre-wrap; /* Firefox */
+    white-space: -pre-wrap;     /* Opera <7 */
+    white-space: -o-pre-wrap;   /* Opera 7 */
+    word-wrap: break-word;      /* IE */
+}
+
+.typewriter {
+    color: #000;
+}
+
+.header-container, .content-container, .footer-container {
+    margin: 0;
+}
+
+.header-container {
+    position: fixed;
+    width: 100%;
+    min-height: 80px;
+    background-color: #000;
+    z-index: 1000;
+}
+
+.header-container .navbar {
+    padding: 10px 5px;
+    z-index: 1001;
+}
+
+.header-container .navbar-brand {
+    padding: 0 0 0 23px;
+}
+
+.header-container .navbar-brand img {
+    width: 150px;
+    max-height: 36px;
+    object-fit: contain;
+}
+
+.header-container .navbar-nav .nav-link {
+    opacity: 0.78;
+    font-family: 'Mada', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+    padding-top: 24px;
+    padding-left: 23px;
+    padding-right: 23px;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 2200px) {
+    .section.col-xl-6 {
+        -ms-flex: 0 0 1150px;
+        flex: 0 0 1150px;
+        max-width: 1150px;
+    }
+
+    .section.offset-xl-3 {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.page-container .navbar-nav .nav-link:hover {
+    color: #ffffff;
+    opacity: 0.78;
+}
+
+.page-container .navbar-nav .nav-link:focus {
+    color: #ffffff;
+    opacity: 0.78;
+}
+
+.header-container .navbar-nav .nav-link .nav-link-underline {
+    width: 0;
+    opacity: 0.78;
+    background-color: #fff;
+    height: 2px;
+    line-height: 2px;
+}
+
+.header-container .navbar-nav .nav-link.selected {
+}
+
+.header-container .navbar-nav .nav-link.selected .nav-link-underline {
+    display: block;
+    opacity: 0.78;
+    background-color: #2194c3;
+    width: 100%;
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-dark .navbar-toggler {
+    color: #2194c3;
+    border-color: transparent;
+}
+
+.navbar-dark .navbar-toggler:focus {
+    outline: none;
+}
+
+.navbar-dark .navbar-toggler .material-icons {
+    font-size: 28px;
+}
+
+.navbar-dark .navbar-toggler .graphene-open {
+    display: none;
+}
+
+.navbar-dark .navbar-toggler.collapsed .graphene-open {
+    display: initial;
+}
+
+.navbar-dark .navbar-toggler .graphene-close {
+    display: initial;
+}
+
+.navbar-dark .navbar-toggler.collapsed .graphene-close {
+    display: none;
+}
+
+.navbar-toggler {
+    z-index: 150;
+}
+.navbar-toggler.collapsed {
+    z-index: 0;
+}
+
+.content-container {
+    margin-top: 150px;
+}
+
+.page-template-landing .title {
+    font-size: 40px;
+    line-height: 42px;
+    font-family: Mada;
+    font-weight: 900;
+}
+
+.page-template-landing .section-summary .background {
+    position: relative;
+    height: 320px;
+}
+
+.page-template-landing .section-summary .background img {
+    height: 100%;
+    position: absolute;
+}
+
+.page-template-landing .description {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 18px;
+}
+
+.page-template-landing .section {
+    margin-top: 150px;
+}
+
+.page-template-landing .section-summary {
+    min-height: 330px;
+}
+
+.page-template-landing .section-summary .description {
+    font-family: Mada;
+    font-size: 46px;
+    font-weight: 900;
+    line-height: 55px;
+    display: none;
+}
+
+.page-template-landing .section-summary .developed-by {
+    margin-top: 10px;
+    opacity: 0.84;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 18px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+.page-template-landing .section-description .title {
+    font-size: 46px;
+    line-height: 60px;
+}
+
+.page-template-landing .section-sgx-integration .variant-title {
+    font-size: 20px;
+    line-height: 42px;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.page-template-landing .section-sgx-integration > .variant .variant-schema img.variant-desktop {
+    max-width: 100%;
+}
+
+.page-template-landing .section-sgx-integration > .variant .variant-schema img.variant-desktop {
+    height: 180px;
+}
+
+.page-template-landing .section-sgx-integration > .variant ~ .variant .variant-schema img.variant-desktop {
+    height: 160px;
+}
+
+.page-template-landing .section-sgx-integration .variant-description {
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.section-why-graphene-matters .partner img {
+    width: 60%;
+    border: none;
+}
+#timeline-wrapper {
+    overflow: hidden;
+    position: relative;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.timeline {
+    position: relative;
+    white-space: nowrap;
+
+    display: flex;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.timeline .material-icons {
+    font-size: 60px;
+}
+
+.timeline-pointer {
+    display: inline-block;
+    margin-left: 41px;
+    height: 41px;
+    line-height: 300px;
+    border-right: 1px solid #2194c3;
+}
+
+.timeline-period {
+    display: inline-block;
+    position: relative;
+}
+
+.timeline-period-start-label {
+    font-family: Mada;
+    position: absolute;
+    font-size: 90px;
+    font-weight: 900;
+    opacity: 0.3;
+    color: #108ec5;
+    transform: translateX(-50%);
+    bottom: 200px;
+}
+
+.timeline-event-label {
+    position: absolute;
+    font-size: 15px;
+    font-weight: 900;
+    white-space: normal;
+    left: 10px;
+    right: 10px;
+    bottom: 100px;
+    z-index: 100;
+}
+
+.timeline-event-label.high {
+    bottom: 170px;
+}
+
+.timeline-event-label a {
+    text-decoration: none;
+    display: block;
+}
+
+.timeline-event-label a {
+    color: #fff;
+}
+
+.timeline-event-label a:hover {
+    color: #2194c3;
+}
+
+.timeline-event-label a .event-link-underline {
+    height: 1px;
+    line-height: 1px;
+    width: 0;
+    background-color: #fff;
+}
+
+.timeline-period-center-label {
+    font-family: Mada;
+    position: absolute;
+    font-size: 100px;
+    font-weight: 900;
+    opacity: 0.3;
+    color: #108ec5;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 200px;
+}
+
+.timeline-pointer-boundary {
+    margin: 0;
+    height: 300px;
+    border-right-width: 2px;
+}
+
+.timeline-period-boundary {
+    margin: 0;
+}
+
+.timeline-period-year .timeline-pointer:last-child {
+    height: 180px;
+}
+
+.timeline-period-event .timeline-pointer:last-child {
+    height: 75px;
+}
+
+.timeline-period-year .timeline-period-event:last-child .timeline-pointer:last-child {
+    height: 180px;
+}
+
+.timeline-period-boundary .timeline-period-year:last-child .timeline-pointer:last-child,
+.timeline-period-boundary .timeline-period-year:last-child .timeline-period-event:last-child .timeline-pointer:last-child {
+    height: 300px;
+    border-right-width: 0;
+}
+
+.page-template-resources .section {
+    margin-top: 100px;
+}
+
+.page-template-resources .section-title .title {
+    font-size: 70px;
+    font-weight: 900;
+    line-height: 71px;
+}
+
+.page-template-resources .section-github img {
+    height: 100%;
+    max-width: 100%;
+}
+
+.page-template-resources .section-github .title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 42px;
+}
+
+.page-template-resources .section-github .description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.page-template-resources .section-github .link a {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 18px;
+    color: #2194c3;
+    border: 1px solid #2194c3;
+    text-decoration: none;
+    padding: 10px 40px;
+    display: inline-block;
+}
+
+.page-template-resources .section-github .link a:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+
+.page-template-resources .section-the-basics .title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 42px;
+}
+
+.page-template-resources .section-the-basics .document a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.page-template-resources .section-the-basics .document a:hover {
+    color: #2194c3;
+}
+
+.page-template-resources .section-the-basics .document .image img {
+    max-width: 100%;
+}
+
+.page-template-resources .section-the-basics .document .title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 22px;
+    margin: 25px 0 10px;
+    min-height: 60px;
+}
+
+.page-template-resources .section-the-basics .document .description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.page-template-resources .section-publications {
+    margin-top: 180px;
+}
+
+.page-template-resources .section-publications .title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 42px;
+}
+
+.page-template-resources .section-publications .document a {
+    color: #2194c3;
+    text-decoration: none;
+}
+
+.page-template-resources .section-publications .document a:hover {
+    color: #fff;
+}
+
+.page-template-resources .section-publications .document .title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 25px 0 10px;
+    min-height: 80px;
+}
+
+.page-template-resources .section-publications .document .link {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.page-template-resources .section-blog .title {
+    font-size: 30px;
+}
+
+.page-template-maintainers .section-title .title {
+    font-size: 70px;
+    font-weight: 900;
+    line-height: 80px;
+    letter-spacing: 7.3px;
+    text-transform: uppercase;
+}
+.page-template-maintainers .description {
+    margin-top: 200px;
+}
+
+.page-template-maintainers .description div {
+    margin: 0 0 0 50px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.page-template-maintainers .section-team .title {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 30px;
+}
+
+.page-template-maintainers .section-team .horizontal-line {
+    position: relative;
+}
+
+.page-template-maintainers .section-team .horizontal-line span {
+    position: absolute;
+    width: 70%;
+    top:45%;
+    background-color: #2194c3;
+    height: 2px;
+    right: 7px;
+}
+
+.page-template-maintainers .team-member {
+    padding: 0 7px;
+}
+
+.page-template-maintainers .team-member a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.page-template-maintainers .team-member a:hover {
+    color: #2194c3;
+}
+
+.page-template-maintainers .team-member img {
+    width: 100%;
+}
+
+.page-template-maintainers .team-member .details {
+    margin: 20px 0 0 10px;
+    padding-left: 10px;
+    border-left: 1px solid #2194c3;
+}
+
+.page-template-maintainers .team-member .name {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+.page-template-maintainers .team-member .position {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.section-blog.section {
+    margin-top: 180px!important;
+}
+
+.section-blog .title {
+    font-size: 40px;
+    line-height: 42px;
+    font-family: Mada;
+    font-weight: 900;
+}
+
+.section-blog .blog-post-link {
+    text-decoration: none;
+    color: #fff;
+    height: 100%;
+}
+
+.section-blog .blog-post-date {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.section-blog .blog-post-title {
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 24px;
+    height: 48px;
+}
+
+.section-blog .blog-post-description {
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.section-blog .blog-post-read-more {
+    text-transform: uppercase;
+    min-height: 50px;
+}
+
+.section-blog .blog-post-read-more > span {
+    display: inline-block;
+}
+
+.section-blog .blog-post-read-more .blog-post-read-more-underline {
+    height: 1px;
+    line-height: 1px;
+    width: 0;
+    background-color: #fff;
+}
+
+.section-blog .go-to-blog {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 20px;
+}
+
+.section-blog .go-to-blog a {
+    color: #2194c3;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid #2194c3;
+    padding: 10px 40px;
+}
+
+.section-blog .go-to-blog a:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+.section-contact .contact-title {
+    font-size: 40px;
+    line-height: 42px;
+    font-family: Mada;
+    font-weight: 900;
+}
+
+.contact-details {
+    font-family: 'Mada', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.contact-details a {
+    color: #2194c3;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 18px;
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    color: #fff;
+}
+
+.section-footer {
+    margin-top: 0!important;
+}
+
+.section-sitemap, .section-sitemap .title {
+    font-family: 'Mada', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.section-sitemap ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.section-sitemap ul li a {
+    color: #2194c3;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+}
+.section-sitemap ul li a:hover {
+    color: #fff;
+}
+
+.section-copyright {
+    font-size: 12px;
+    font-weight: 400;
+    color: #d8d8d8;
+}
+
+.section-copyright img {
+    max-height: 25px;
+}
+
+@media only screen and (max-width: 991.9px) {
+
+    .navbar-dark .navbar-collapse {
+        background-color: #000;
+        border: 1px solid #2194c3;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 70vw;
+    }
+
+    .header-container .navbar-nav {
+        margin: 100px 50px;
+    }
+
+    .page-container .navbar-nav .nav-link {
+        text-align: left;
+        font-size: 16px;
+        color: #2194c3;
+        opacity: 1;
+    }
+
+    .page-container .navbar-nav .nav-link:hover {
+        color: #2194c3;
+    }
+
+    .page-container .navbar-nav .nav-link:focus {
+        color: #2194c3;
+    }
+
+    .header-container .navbar-nav .nav-link .nav-link-underline,
+    .header-container .navbar-nav .nav-link.selected .nav-link-underline {
+        display: none;
+    }
+
+    .page-template-maintainers .section-title .title {
+        font-size: 44px;
+        line-height: 46px;
+    }
+
+    .page-template-maintainers .description {
+        margin-top: 40px;
+    }
+
+    .page-template-maintainers .description div {
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+
+    .navbar-dark .navbar-collapse {
+        width: 80vw;
+    }
+
+    .header-container .navbar-nav {
+        margin: 100px 20px;
+    }
+
+    .content-container {
+        margin-top: 75px;
+    }
+
+    .graphene-spacer-50 {
+        margin-bottom: 25px;
+    }
+
+    .graphene-spacer-100 {
+        margin-bottom: 50px;
+    }
+
+    .graphene-spacer-150 {
+        margin-bottom: 75px;
+    }
+
+    .header-container .navbar-brand img {
+        width: 130px;
+        object-fit: contain;
+    }
+
+    .section {
+        margin-top: 70px!important;
+    }
+
+    .page-template-landing .section-summary .description {
+        font-size: 34px;
+        line-height: 40px;
+    }
+
+    .page-template-landing .section-summary .background {
+        position: relative;
+        height: 140px;
+    }
+
+    .page-template-landing .section-summary .background img {
+        height: 260px;
+        position: absolute;
+        right: 0;
+    }
+
+    .page-template-landing .section-description .title {
+        font-size: 22px;
+    }
+
+    .page-template-landing .section-sgx-integration .title {
+        font-size: 22px;
+    }
+
+    .page-template-landing .section-sgx-integration .variant-title {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 42px;
+    }
+
+    .page-template-landing .section-sgx-integration .variant-description {
+        font-size: 16px;
+        line-height: 18px;
+        margin-bottom: 30px;
+    }
+
+    .page-template-landing .section-why-graphene-matters .title {
+        font-size: 22px;
+    }
+
+    .page-template-landing .section-timeline .title {
+        font-size: 22px;
+    }
+
+    .timeline-event-label {
+        font-size: 12px;
+    }
+
+    .timeline-pointer {
+        height: 30px;
+    }
+
+    .timeline-pointer-boundary {
+        height: 225px;
+    }
+
+    .timeline-period-year .timeline-pointer:last-child {
+        height: 135px;
+    }
+
+    .timeline-period-event .timeline-pointer:last-child {
+        height: 56px;
+    }
+
+    .timeline-period-year .timeline-period-event:last-child .timeline-pointer:last-child {
+        height: 135px;
+    }
+
+    .timeline-period-boundary .timeline-period-year:last-child .timeline-pointer:last-child,
+    .timeline-period-boundary .timeline-period-year:last-child .timeline-period-event:last-child .timeline-pointer:last-child {
+        height: 225px;
+    }
+
+    .timeline-period-start-label {
+        font-size: 80px;
+        bottom: 140px;
+    }
+
+    .timeline-period-center-label {
+        font-size: 80px;
+        bottom: 140px;
+    }
+
+    .timeline .material-icons {
+        font-size: 50px;
+    }
+
+    .timeline-event-label {
+        bottom: 70px;
+    }
+
+    .timeline-event-label.high {
+        bottom: 120px;
+    }
+
+    .section-blog .title {
+        font-size: 22px;
+    }
+
+    .section-blog .title {
+        font-size: 22px;
+    }
+
+    .section-blog .blog-post-title {
+        font-size: 16px;
+    }
+
+    .section-blog .go-to-blog {
+        font-size: 16px;
+    }
+
+    .section-contact .contact-title {
+        font-size: 22px;
+    }
+
+    .section-contact .contact-details {
+        font-weight: 700;
+    }
+
+    .page-template-resources .section-title .title {
+        font-size: 44px;
+    }
+
+    .page-template-resources .section-github .title {
+        font-size: 22px;
+    }
+
+    .page-template-resources .section-github .link a {
+        font-size: 16px;
+    }
+
+    .page-template-resources .section-the-basics .title {
+        font-size: 22px;
+    }
+
+    .page-template-resources .section-the-basics .document a {
+        display: flex;
+    }
+
+    .page-template-resources .section-the-basics .document .title {
+        font-size: 16px;
+        line-height: 18px;
+        margin: 0 0 10px;
+        min-height: auto;
+    }
+
+    .page-template-resources .section-publications .title {
+        font-size: 22px;
+    }
+
+    .page-template-resources .section-publications .document .title {
+        min-height: auto;
+    }
+
+    .page-template-maintainers .section-team {
+        margin-top: 20px!important;
+    }
+
+    .page-template-maintainers .section-team .team-members {
+        margin-top: 40px!important;
+    }
+}
