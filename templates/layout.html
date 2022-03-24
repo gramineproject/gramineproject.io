@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>{% block title %}Gramine{% endblock %}</title>
+
+    <link rel="shortcut icon" type="image/png" href="{{ '/static/favicon.png'|url }}"/>
+    <link rel='stylesheet' id='wp-block-library-css'  href="{{ '/static/css/block-library/style.min.css'|url }}" type='text/css' media='all' />
+    <link rel='stylesheet' id='bootstrap-style-css'  href="{{ '/static/css/lib/bootstrap.min.css'|url }}" type='text/css' media='all' />
+    <link rel='stylesheet' id='t1-style-css' href="{{ '/static/css/graphene/style.css'|url }}" type='text/css' media='all' />
+</head>
+
+<body class="home page-template page-template-templates {% block body_class %}{% endblock %} page-template-templateslanding-php page page-id-2" style="">
+    <div id="page" class="hfeed site row no-gutters">
+        <div class="page-container col-12 no-gutters row">
+            {% include "_header.html" %}
+
+            <div id="page-2" class="content-container col-12 row no-gutters align-items-center post-2 page type-page status-publish hentry">
+                <div class="page-main col-12 row no-gutters">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+
+            {% include "_footer.html" %}
+
+            <script type='text/javascript' src="{{ '/static/js/lib/jquery-3.3.1.min.js?ver=3.3.1'|url }}"></script>
+            <script type='text/javascript' src="{{ '/static/js/lib/bootstrap.min.js?ver=4.3.1'|url }}"></script>
+            <script type='text/javascript' src="{{ '/static/js/lib/jquery-ui.min.js?ver=1.12.1'|url }}"></script>
+            <script type='text/javascript' src="{{ '/static/js/lib/jquery.mousewheel3.1.13.min.js?ver=3.1.13'|url }}"></script>
+            <script type='text/javascript' src="{{ '/static/js/lib/jquery.kinetic.min.js?ver=2.2.4'|url }}"></script>
+            <script type='text/javascript' src="{{ '/static/js/lib/flumen.js?ver=1.0.2'|url }}"></script>
+            <script type='text/javascript' src="{{ '/static/js/t1-1.1.js?ver=1.1'|url }}"></script>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<div class="header-container col-12 row no-gutters">
+    <nav id="header-menu" class="navbar navbar-expand-lg navbar-dark col-12 col-xl-10 offset-xl-1">
+        <a class="navbar-brand" href="index.html" ><img src="{{ '/static/img/graphene_logo.svg'|url }}" alt="Graphene" style="" /></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="graphene-open material-icons">menu</i>
+            <i class="graphene-close material-icons">close</i>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav rig">
+                <li class="nav-item text-right">
+                    <a class="nav-link {% if this._path == '/' %}selected{% endif %}" href="{{ '/'|url }}" target="">
+                        <span>Home</span>
+                        <div class="nav-link-underline"></div>
+                        <br style="height: 1px; clear: both;">
+                    </a>
+                </li>
+                <li class="nav-item text-right">
+                    <a class="nav-link {% if this._path == '/resources' %}selected{% endif %}" href="{{ '/resources'|url }}" target="">
+                        <span>Resources</span>
+                        <div class="nav-link-underline"></div>
+                        <br style="height: 1px; clear: both;">
+                    </a>
+                </li>
+                <li class="nav-item text-right">
+                    <a class="nav-link {% if this._path == '/maintainers' %}selected{% endif %}" href="{{ '/maintainers'|url }}" target="">
+                        <span>Maintainers</span>
+                        <div class="nav-link-underline"></div>
+                        <br style="height: 1px; clear: both;">
+                    </a>
+                </li>
+                <li class="nav-item text-right">
+                    <a class="nav-link" href="https://github.com/gramineproject" target="">
+                        <span>GitHub</span>
+                        <div class="nav-link-underline"></div>
+                        <br style="height: 1px; clear: both;">
+                    </a>
+                </li>
+                <li class="nav-item text-right">
+                    <a class="nav-link" href="https://gramine.readthedocs.io/en/latest/" target="_blank">
+                        <span>Docs</span>
+                        <div class="nav-link-underline"></div>
+                        <br style="height: 1px; clear: both;">
+                    </a>
+                </li>
+                <li class="nav-item text-right">
+                    <a class="nav-link" href="{{ '/'|url }}#section-contact" target="">
+                        <span>Contact</span>
+                        <div class="nav-link-underline"></div>
+                        <br style="height: 1px; clear: both;">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
