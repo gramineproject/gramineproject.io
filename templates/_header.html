@@ -29,6 +29,13 @@
                     </a>
                 </li>
                 <li class="nav-item text-right">
+                    <a class="nav-link {% if this._path.startswith('/blog') %}selected{% endif %}" href="{{ '/blog'|url }}" target="">
+                        <span>Blog</span>
+                        <div class="nav-link-underline"></div>
+                        <br style="height: 1px; clear: both;">
+                    </a>
+                </li>
+                <li class="nav-item text-right">
                     <a class="nav-link" href="https://github.com/gramineproject" target="">
                         <span>GitHub</span>
                         <div class="nav-link-underline"></div>
