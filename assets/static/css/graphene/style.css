@@ -724,6 +724,15 @@ body {
     max-height: 25px;
 }
 
+.section-blog-post a {
+    color: #2194c3;
+}
+
+.section-blog-post h1 {
+    font-size: 42px;
+    font-weight: 900;
+}
+
 @media only screen and (max-width: 991.9px) {
 
     .navbar-dark .navbar-collapse {
