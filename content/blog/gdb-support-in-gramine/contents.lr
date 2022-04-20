@@ -44,7 +44,7 @@ are running inside an enclave. Gramine handles application's system calls. When
 necessary, it invokes the untrusted runtime, which runs outside of the enclave
 and is responsible for calling the host OS.
 
-<img src="overview.svg" style="margin-top: -100px; margin-bottom: -100px; filter: invert(100%);">
+<img src="/blog/gdb-support-in-gramine/overview.svg" style="margin-top: -100px; margin-bottom: -100px; filter: invert(100%);">
 
 Gramine might not be a real OS kernel, but it's still a pretty complicated piece
 of software. It's really useful to have a debugger when developing Gramine and
@@ -72,7 +72,7 @@ If we examine the process using GDB, we will find that it's executing the code
 at the async exit pointer (AEP), an event handler outside of the enclave. Most
 CPU registers are also reset, so that data does not leak out of the enclave.
 
-<img src="aep1.svg" style="margin-top: -80px; margin-bottom: -80px; filter: invert(100%);">
+<img src="/blog/gdb-support-in-gramine/aep1.svg" style="margin-top: -80px; margin-bottom: -80px; filter: invert(100%);">
 
 However, if we're able to read the enclave memory (via the `/proc/<pid>/mem`
 special file), we can actually find the previous position stored there, as well
@@ -99,7 +99,7 @@ stopped *before* it exited the enclave.
 [ld_preload]: https://stackoverflow.com/questions/426230/what-is-the-ld-preload-trick
 [ptrace_wrapper]: (https://github.com/gramineproject/gramine/blob/ad85fe95c43fd583f7fa53a5f170383a5fcd8536/Pal/src/host/Linux-SGX/gdb_integration/sgx_gdb.c#L488)
 
-<img src="aep2.svg" style="margin-top: -50px; margin-bottom: -50px; filter: invert(100%);">
+<img src="/blog/gdb-support-in-gramine/aep2.svg" style="margin-top: -50px; margin-bottom: -50px; filter: invert(100%);">
 
 As a result, the enclave code is largely transparent to GDB: we're able to see
 the current location in enclave, single-step through instructions, and add
@@ -113,7 +113,7 @@ source lines (or even functions) these instructions correspond to. This is
 because GDB has no information about binaries that are loaded inside the
 enclave.
 
-<img src="files.svg" style="margin-top: -50px; margin-bottom: -50px; filter: invert(100%);">
+<img src="/blog/gdb-support-in-gramine/files.svg" style="margin-top: -50px; margin-bottom: -50px; filter: invert(100%);">
 
 This situation is actually not that different from regular Linux programs that
 use dynamic libraries. And regular programs have a standard solution for it: the
@@ -168,7 +168,7 @@ might need to go through three different places in memory:
 As a result, if we want to read a full stack trace, we might need to go through
 three different places in memory:
 
-<img src="stack.svg" style="margin-top: -50px; margin-bottom: -50px; filter: invert(100%);">
+<img src="/blog/gdb-support-in-gramine/stack.svg" style="margin-top: -50px; margin-bottom: -50px; filter: invert(100%);">
 
 GDB has to understand how to move between all these stacks. This is usually done
 by decorating the assembly code with [CFI directives], which contain exactly
