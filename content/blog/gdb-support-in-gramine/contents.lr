@@ -74,7 +74,7 @@ read and write enclave memory).
 
 Unfortunately, it's not that easy to check which part of the program is being
 executed. Whenever the process is stopped while in enclave, the SGX hardware
-forces it to exit the eclave and land on the Async Exit Pointer (AEP). Most CPU
+forces it to exit the enclave and land on the Async Exit Pointer (AEP). Most CPU
 registers are also reset to prevent data leaks. Therefore, when we examine a
 stopped process with GDB, we will never see the actual location in enclave, or
 any other useful information such as stack pointer.
