@@ -47,7 +47,7 @@ necessary, it invokes the untrusted runtime, which runs outside of the enclave
 and is responsible for calling the host OS.
 
 <div style="overflow: hidden;">
-    <img src="/blog/gdb-support-in-gramine/overview.svg" style="margin-top: -100px; margin-bottom: -100px; filter: invert(100%);">
+    <img src="/blog/gdb-support-in-gramine/overview.svg" style="margin: -20% -40% -20% -40%; filter: invert(100%);">
 </div>
 
 Gramine might not be a real OS kernel, but it's still a pretty complicated piece
@@ -80,7 +80,7 @@ stopped process with GDB, we will never see the actual location in enclave, or
 any other useful information such as stack pointer.
 
 <div style="overflow: hidden;">
-    <img src="/blog/gdb-support-in-gramine/aep1.svg" style="margin-top: -80px; margin-bottom: -60px; filter: invert(100%);">
+    <img src="/blog/gdb-support-in-gramine/aep1.svg" style="margin: -10% -30% -10% -30%; filter: invert(100%);">
 </div>
 
 However, if we're able to read the enclave memory (via the `/proc/<pid>/mem`
@@ -117,7 +117,7 @@ stopped *before* it exited the enclave.
 [ptrace_wrapper]: https://github.com/gramineproject/gramine/blob/ad85fe95c43fd583f7fa53a5f170383a5fcd8536/Pal/src/host/Linux-SGX/gdb_integration/sgx_gdb.c#L488
 
 <div style="overflow: hidden;">
-    <img src="/blog/gdb-support-in-gramine/aep2.svg" style="margin-top: -50px; margin-bottom: -50px; filter: invert(100%);">
+    <img src="/blog/gdb-support-in-gramine/aep2.svg" style="margin: -10% -10% -10% -10%; filter: invert(100%);">
 </div>
 
 As a result, the enclave code is largely transparent to GDB: we're able to see
@@ -133,7 +133,7 @@ because GDB has no information about binaries that are loaded inside the
 enclave.
 
 <div style="overflow: hidden;">
-    <img src="/blog/gdb-support-in-gramine/files.svg" style="margin-top: -50px; margin-bottom: -120px; filter: invert(100%);">
+    <img src="/blog/gdb-support-in-gramine/files.svg" style="margin: -10% -20% -20% -20%; filter: invert(100%);">
 </div>
 
 This situation is actually not that different from regular Linux programs that
@@ -212,7 +212,7 @@ three different places in memory: the untrusted stack, Gramine's stack, and
 finally the application stack.
 
 <div style="overflow: hidden;">
-    <img src="/blog/gdb-support-in-gramine/stack.svg" style="margin-top: -50px; margin-bottom: -40px; filter: invert(100%);">
+    <img src="/blog/gdb-support-in-gramine/stack.svg" style="margin: -5% -10% -5% -10%; filter: invert(100%);">
 </div>
 
 GDB has to understand how to move between all these stacks. This is usually done
