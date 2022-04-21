@@ -9,17 +9,17 @@ Text Domain: Graphene
 Tags: Graphene, Golem
 */
 
-@import url('https://fonts.googleapis.com/css?family=Mada:400,500,600,700,900');
+@import url('https://fonts.googleapis.com/css?family=Source Sans Pro:400,500,600,700,900');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 html {
-    font-family: 'Mada', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     text-rendering: optimizeLegibility;
 }
 
 body {
     margin: 0;
-    font-family: 'Mada', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     text-rendering: optimizeLegibility;
     background-color: #000;
     color: #fff;
@@ -94,7 +94,7 @@ body {
 
 .header-container .navbar-nav .nav-link {
     opacity: 0.78;
-    font-family: 'Mada', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 16px;
     font-weight: 600;
     font-style: normal;
@@ -196,7 +196,7 @@ body {
 .page-template-landing .title {
     font-size: 40px;
     line-height: 42px;
-    font-family: Mada;
+    font-family: 'Source Sans Pro';
     font-weight: 900;
 }
 
@@ -225,7 +225,7 @@ body {
 }
 
 .page-template-landing .section-summary .description {
-    font-family: Mada;
+    font-family: 'Source Sans Pro';
     font-size: 46px;
     font-weight: 900;
     line-height: 55px;
@@ -316,7 +316,7 @@ body {
 }
 
 .timeline-period-start-label {
-    font-family: Mada;
+    font-family: 'Source Sans Pro';
     position: absolute;
     font-size: 90px;
     font-weight: 900;
@@ -362,7 +362,7 @@ body {
 }
 
 .timeline-period-center-label {
-    font-family: Mada;
+    font-family: 'Source Sans Pro';
     position: absolute;
     font-size: 100px;
     font-weight: 900;
@@ -596,7 +596,7 @@ body {
 .section-blog .title {
     font-size: 40px;
     line-height: 42px;
-    font-family: Mada;
+    font-family: 'Source Sans Pro';
     font-weight: 900;
 }
 
@@ -665,12 +665,12 @@ body {
 .section-contact .contact-title {
     font-size: 40px;
     line-height: 42px;
-    font-family: Mada;
+    font-family: 'Source Sans Pro';
     font-weight: 900;
 }
 
 .contact-details {
-    font-family: 'Mada', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 900;
     font-size: 18px;
     line-height: 20px;
@@ -693,7 +693,7 @@ body {
 }
 
 .section-sitemap, .section-sitemap .title {
-    font-family: 'Mada', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 700;
     font-size: 15px;
     line-height: 18px;
