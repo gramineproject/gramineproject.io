@@ -4,12 +4,14 @@ author: Paweł Marczewski
 ---
 pub_date: 2022-04-21
 ---
+class: img-invert
+---
 body:
 
 <!--
-  NOTE about <img> tags: these are SVG images exported from Google Docs; the
-  CSS is for reducing margin (unfortunately Google Docs doesn't allow for easy
-  cropping) and for inverting colors (Gramine's website is white-on-black)
+  NOTE about images: these are SVG images exported from Google Docs and then
+  cropped; the `img-invert` CSS class above is for inverting colors (Gramine's
+  website is white-on-black)
 -->
 
 *This is a blog post about GDB support in the Gramine project. This feature was
@@ -46,9 +48,7 @@ are running inside an enclave. Gramine handles application's system calls. When
 necessary, it invokes the untrusted runtime, which runs outside of the enclave
 and is responsible for calling the host OS.
 
-<div style="overflow: hidden;">
-    <img src="/blog/gdb-support-in-gramine/overview.svg" style="margin-top: -100px; margin-bottom: -100px; filter: invert(100%);">
-</div>
+![Architecture overview: application and Gramine in enclave, untrusted runtime outside.](overview.svg)
 
 Gramine might not be a real OS kernel, but it's still a pretty complicated piece
 of software. It's really useful to have a debugger when developing Gramine and
@@ -79,9 +79,7 @@ registers are also reset to prevent data leaks. Therefore, when we examine a
 stopped process with GDB, we will never see the actual location in enclave, or
 any other useful information such as stack pointer.
 
-<div style="overflow: hidden;">
-    <img src="/blog/gdb-support-in-gramine/aep1.svg" style="margin-top: -80px; margin-bottom: -60px; filter: invert(100%);">
-</div>
+![We see the process at AEP, not in enclave.](aep1.svg)
 
 However, if we're able to read the enclave memory (via the `/proc/<pid>/mem`
 special file), we can actually find the previous position stored there, as well
@@ -116,9 +114,7 @@ stopped *before* it exited the enclave.
 [ld_preload]: https://stackoverflow.com/questions/426230/what-is-the-ld-preload-trick
 [ptrace_wrapper]: https://github.com/gramineproject/gramine/blob/ad85fe95c43fd583f7fa53a5f170383a5fcd8536/Pal/src/host/Linux-SGX/gdb_integration/sgx_gdb.c#L488
 
-<div style="overflow: hidden;">
-    <img src="/blog/gdb-support-in-gramine/aep2.svg" style="margin-top: -50px; margin-bottom: -50px; filter: invert(100%);">
-</div>
+![The ptrace wrapper reads saved register values and passes them to GDB.](aep2.svg)
 
 As a result, the enclave code is largely transparent to GDB: we're able to see
 the current location in enclave, single-step through instructions, and add
@@ -132,9 +128,7 @@ source lines (or even functions) these instructions correspond to. This is
 because GDB has no information about binaries that are loaded inside the
 enclave.
 
-<div style="overflow: hidden;">
-    <img src="/blog/gdb-support-in-gramine/files.svg" style="margin-top: -50px; margin-bottom: -120px; filter: invert(100%);">
-</div>
+![Instead of various files loaded in enclave, GDB sees raw data.](files.svg)
 
 This situation is actually not that different from regular Linux programs that
 use dynamic libraries. And regular programs have a standard solution for it: the
@@ -211,9 +205,7 @@ As a result, if we want to read a full stack trace, we might need to go through
 three different places in memory: the untrusted stack, Gramine's stack, and
 finally the application stack.
 
-<div style="overflow: hidden;">
-    <img src="/blog/gdb-support-in-gramine/stack.svg" style="margin-top: -50px; margin-bottom: -40px; filter: invert(100%);">
-</div>
+![The full stack trace has to be reconstructed from three separate parts.](stack.svg)
 
 GDB has to understand how to move between all these stacks. This is usually done
 by decorating the assembly code with [CFI directives], which contain exactly
