@@ -119,6 +119,10 @@ body {
     filter: invert(100%);
 }
 
+.svg-invert img[src$='.svg'] {
+    filter: invert(100%);
+}
+
 @media only screen and (min-width: 1200px) and (max-width: 2200px) {
     .section.col-xl-6 {
         -ms-flex: 0 0 1150px;
@@ -742,6 +746,16 @@ body {
 .section-blog-post h1 {
     font-size: 42px;
     font-weight: 900;
+}
+
+.section-blog-post .caption {
+    text-align: center;
+    margin: 0 3em 1.5em 3em;
+    font-size: 90%;
+}
+
+.section-blog-post img {
+    max-width: 100%;
 }
 
 @media only screen and (max-width: 991.9px) {
