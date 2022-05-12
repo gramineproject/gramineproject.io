@@ -115,7 +115,7 @@ body {
     max-height: 400px;
 }
 
-.img-invert {
+.img-invert img {
     filter: invert(100%);
 }
 
