@@ -30,8 +30,11 @@ source.
 
 (There might be different reasons for such overhead. For instance, Gramine might
 implement a feature in an inefficient way, or not provide a feature at all,
-causing the application to fall back to suboptimal behavior. A profiler helps
-with understanding where exactly the execution time is being spent).
+causing the application to fall back to suboptimal behavior. The inefficiency
+might also be due to the constraints of specific Gramine environment: for
+instance, the `fork` operation under SGX is pretty much guaranteed be slower
+than in native Linux. A profiler helps with understanding where exactly the
+execution time is being spent.)
 
 Unfortunately, similar to what we've seen with GDB, Gramine's SGX mode does not
 support profiling tools out of the box: by default, the code executing inside an
@@ -58,7 +61,7 @@ The architecture of `perf` is interesting. In order to monitor a running
 process, `perf record` asks the Linux kernel to collect events from it (using
 the [perf_event_open] system call). The Linux kernel records *samples*, which
 typically contain some execution state (instruction pointer, stack pointer,
-etc.) Linux also records information about executable files (main binary and
+etc.). Linux also records information about executable files (main binary and
 shared libraries) mapped by the application.
 
 [perf_event_open]: https://man7.org/linux/man-pages/man2/perf_event_open.2.html
@@ -78,7 +81,7 @@ the offset corresponds to (similar to how [addr2line] does it).
 `perf` is a very powerful tool. Apart from the basic statistics shown above,
 it's possible to gather information about kernel execution, detailed processor
 performance (e.g. cache misses), system calls, and much more. (See [Brendan
-Gregg's `perf` page][brendangregg] for various examples).
+Gregg's `perf` page][brendangregg] for various examples.)
 
 [brendangregg]: https://www.brendangregg.com/perf.html
 
@@ -94,7 +97,10 @@ will assign all time spent inside an SGX enclave to a function called
 
 ![Screenshot of perf report for SGX enclave. Most time is spent in async_exit_pointer.](perf-report-aex.png)
 
-(Note that in the screenshot, `loader` is the name of the main Gramine binary).
+<div class="caption">
+<p>Note that in the screenshot, <code>loader</code> is the name of the main
+Gramine binary.</p>
+</div>
 
 As explained in the [previous article about GDB][prev], Async Exit Pointer (AEP)
 is where the process ends up when enclave execution is interrupted. It turns out
@@ -107,8 +113,8 @@ recorded by the Linux kernel, not by the user-space `perf record` tool. Unlike a
 debugger, `perf record` does not stop the process, it just keeps receiving a
 stream of events about it from the Linux kernel.
 
-For the time being, I abandoned `perf` and started looking for other ways to
-profile Gramine.
+I decided to move away from `perf` for the time being, and look for other ways
+to profile Gramine.
 
 ## Poor man's profiler
 
@@ -251,9 +257,9 @@ samples with already-parsed locations and stack traces.
 [chrome-tracing]: https://aras-p.info/blog/2017/01/23/Chrome-Tracing-as-Profiler-Frontend/
 
 `perf report` does parse raw data, but it expects input (the `perf.data` file)
-in a complicated format produced by Linux kernel. The amount of data gathered by
-Linux was intimidating, and overall, `perf.data` sounded like a "private"
-interface used by the `perf` system.
+in a complicated format produced by the Linux kernel. The amount of data
+gathered by Linux was intimidating, and overall, `perf.data` sounded like a
+"private" interface used by the `perf` system.
 
 However, on closer look, it turned out that the [perf.data format][format] is
 pretty well documented. The file can contain many event types, but most parts
@@ -307,11 +313,11 @@ Here, then, is the SGX profiler I came up with:
 5. The resulting file can be opened in `perf report`, same as "real" files
    produced by Linux.
 
-(To enable the SGX profiling mode for yourself, see the [SGX
+To enable the SGX profiling mode for yourself, see the [SGX
 profiling][sgx-profiling] section in the Gramine documentation. In short, you
 will need to compile Gramine in debug mode, and add some options to the
 manifest. Then, running an application in Gramine will produce a file that can
-be opened by `perf report`).
+be opened by `perf report`.
 
 [call-sample]: https://github.com/gramineproject/gramine/blob/25984464c0add3053fea04a5f1c8b6ed51c204c9/Pal/src/host/Linux-SGX/sgx_entry.S#L91
 [sgx_profile_sample_aex]: https://github.com/gramineproject/gramine/blob/25984464c0add3053fea04a5f1c8b6ed51c204c9/Pal/src/host/Linux-SGX/sgx_profile.c#L246
@@ -321,16 +327,19 @@ be opened by `perf report`).
 
 ![Screenshot of perf report, with in-enclave functions visible.](perf-report-sgx.png)
 
-(The above report shows functions executed inside the SGX enclave. The top
-entry, `slow`, is a function that I added to the application: it contains a
-long-running loop. Functions belonging to `libpal.so` and `libsysdb.so` come
-from the two main components of Gramine: PAL and LibOS, respectively).
+<div class="caption">
+<p>The above report shows functions executed inside the SGX enclave. The top
+entry, <code>slow</code>, is a function that I added to the application: it
+contains a long-running loop. Functions belonging to <code>libpal.so</code> and
+<code>libsysdb.so</code> come from the two main components of Gramine: PAL and
+LibOS, respectively.</p>
+</div>
 
 The SGX profiler turned out to be pretty useful: it allowed us to track down
 various problems that appeared only in SGX mode (and, as such, could not be
 traced using "normal" `perf`).
 
-One frequently encountered issue was an application mapping too much memory. On
+One frequently encountered issue was applications mapping too much memory. On
 Linux, `mmap` is usually cheap, so you can afford to map a large area without
 using it: the actual memory will be allocated and zeroed only when accessed by
 application. However, in Gramine's SGX mode, [enclave memory is
