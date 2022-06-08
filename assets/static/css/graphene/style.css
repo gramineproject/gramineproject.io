@@ -754,6 +754,10 @@ body {
     font-size: 90%;
 }
 
+.section-blog-post img {
+    max-width: 100%;
+}
+
 @media only screen and (max-width: 991.9px) {
 
     .navbar-dark .navbar-collapse {

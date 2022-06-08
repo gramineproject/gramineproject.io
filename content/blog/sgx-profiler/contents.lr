@@ -12,7 +12,7 @@ body:
 Thanks to (TODO) for reviewing.*
 
 [Gramine] is a framework for running Linux applications under non-standard
-environments, with [Intel SGX] enclaves as currently the main use case. In the
+environments, currently with [Intel SGX] enclaves as the main use case. In the
 [previous article][prev], I described adding GDB support for Gramine. Today,
 I'll describe adding support for profiling.
 
@@ -321,9 +321,9 @@ be opened by `perf report`.
 
 [call-sample]: https://github.com/gramineproject/gramine/blob/25984464c0add3053fea04a5f1c8b6ed51c204c9/Pal/src/host/Linux-SGX/sgx_entry.S#L91
 [sgx_profile_sample_aex]: https://github.com/gramineproject/gramine/blob/25984464c0add3053fea04a5f1c8b6ed51c204c9/Pal/src/host/Linux-SGX/sgx_profile.c#L246
-[sgx_perf_data]: https://github.com/gramineproject/gramine/blob/master/Pal/src/host/Linux-SGX/sgx_perf_data.c
+[sgx_perf_data]: https://github.com/gramineproject/gramine/blob/aa4486b3357b943e8f131e7473ffb098a46b9195/Pal/src/host/Linux-SGX/sgx_perf_data.c
 [sgx_profile_report_elf]: https://github.com/gramineproject/gramine/blob/25984464c0add3053fea04a5f1c8b6ed51c204c9/Pal/src/host/Linux-SGX/sgx_profile.c#L301
-[sgx-profiling]: https://gramine.readthedocs.io/en/v1.1/devel/performance.html#sgx-profiling
+[sgx-profiling]: https://gramine.readthedocs.io/en/v1.2/devel/performance.html#sgx-profiling
 
 ![Screenshot of perf report, with in-enclave functions visible.](perf-report-sgx.png)
 
@@ -341,15 +341,16 @@ traced using "normal" `perf`).
 
 One frequently encountered issue was applications mapping too much memory. On
 Linux, `mmap` is usually cheap, so you can afford to map a large area without
-using it: the actual memory will be allocated and zeroed only when accessed by
-application. However, in Gramine's SGX mode, [enclave memory is
-preallocated][enclave-size], and `mmap` returns existing enclave pages. These
-pages have to be zeroed first, causing `mmap` to take more time. It might be
-necessary to tweak some components of the application (such as [the glibc
-implementation of malloc][glibc-malloc-tuning]) to avoid excessive `mmap` use.
+using it: the actual memory for a page will be allocated only after the
+application writes to it for the first time. However, in Gramine's SGX mode,
+[enclave memory is preallocated][enclave-size], and `mmap` returns existing
+enclave pages. These pages have to be zeroed first, causing `mmap` to take more
+time. It might be necessary to tweak some components of the application (such as
+[the glibc implementation of malloc][glibc-malloc-tuning]) to avoid excessive
+`mmap` use.
 
-[enclave-size]: https://gramine.readthedocs.io/en/latest/manifest-syntax.html#enclave-size
-[glibc-malloc-tuning]: https://gramine.readthedocs.io/en/latest/devel/performance.html#glibc-malloc-tuning
+[enclave-size]: https://gramine.readthedocs.io/en/v1.2/manifest-syntax.html#enclave-size
+[glibc-malloc-tuning]: https://gramine.readthedocs.io/en/v1.2/devel/performance.html#glibc-malloc-tuning
 
 ## In conclusion
 
@@ -362,9 +363,9 @@ However, I regret all of that was necessary, and I hope that a simpler solution
 appears in the future. Perhaps `perf` will be able to work with SGX enclaves
 directly.
 
-The Gramine team is also currently working on an alternative: an integration
-with [Intel VTune Profiler][vtune]. While this will supplement, not replace, the
-`perf` integration, VTune supports SGX natively, so it's likely to be more
-accurate and produce more details.
+Recently, the Gramine team shipped another feature that can be used for SGX
+profiling: an [integration with Intel VTune Profiler][vtune]. While this feature
+supplements, not replaces, the `perf` integration, VTune supports SGX natively,
+so it's likely to be more accurate and produce more details.
 
-[vtune]: https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-profiler.html
+[vtune]: https://gramine.readthedocs.io/en/v1.2/devel/performance.html#profiling-sgx-hotspots-with-intel-vtune-profiler
