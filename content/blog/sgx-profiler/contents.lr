@@ -9,7 +9,7 @@ class: svg-invert
 body:
 
 *This blog post describes how I developed the SGX profiling mode for Gramine.
-Thanks to (TODO) for reviewing.*
+Thanks to Dmitrii Kuvaiskii and Michał Kowalczyk for reviewing.*
 
 [Gramine] is a framework for running Linux applications under non-standard
 environments, currently with [Intel SGX] enclaves as the main use case. In the
@@ -20,7 +20,7 @@ I'll describe adding support for profiling.
 [Intel SGX]: https://en.wikipedia.org/wiki/Software_Guard_Extensions
 [prev]: https://gramineproject.io/blog/gdb-support-in-gramine/
 
-[Profilers] allow analyzing a program behavior, for instance by presenting
+[Profilers] allow analyzing program behavior, for instance by presenting
 statistics of time spent in a given function. In the context of Gramine, a
 profiler is a pretty useful tool: it's quite possible that using Gramine for an
 application will add some overhead, and using a profiler, we can find out its
