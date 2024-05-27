@@ -1,0 +1,42 @@
+en:
+  languageName: English
+  weight: 1
+  ### copyright (markdown can be used) ###
+  copyright: "Copyright &copy; {{< current_year >}} Linux Foundation. All Rights Reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our [Trademark Usage page](https://www.linuxfoundation.org/legal/trademark-usage). Linux is a registered trademark of Linus Torvalds. [Privacy Policy](https://www.linuxfoundation.org/legal/privacy-policy) and [Terms of Use](https://www.linuxfoundation.org/legal/terms)."
+  title: "Gramine"
+  params:
+    description: "Site Description"
+    ### accessibility ###
+    # accessibility:
+    #   skip_text: "Skip to content"
+    #   help_text: "Accessibility Statement"
+    #   help_url: "/example-page/"
+    ### calls to action ###
+    github_edit: "Edit this page on GitHub"
+  ### example menu showing children ###
+  menu:
+    main:
+    - identifier: "resources"
+      name: "Resources"
+      url: "/resources/"
+      weight: 1
+    - identifier: "maintainers"
+      name: "Maintainers"
+      url: "/maintainers/"
+      weight: 2
+    - identifier: "blog"
+      name: "Blog"
+      url: "/blog/"
+      weight: 3
+    - identifier: "docs"
+      name: "Docs"
+      url: "https://gramine.readthedocs.io/en/latest/"
+      weight: 4
+    - identifier: "github"
+      name: "GitHub"
+      url: "https://github.com/gramineproject"
+      weight: 5
+    - identifier: "contact"
+      name: "Contact"
+      url: "/contact/"
+      weight: 6
