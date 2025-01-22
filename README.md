@@ -49,3 +49,15 @@ npm run dev:start:with-pagefind
 This should give an address you can visit on your local machine to see the local copy of your site. Typically this is `localhost:1313`. Just navigate to http://localhost:1313 in your browser and you should see the site running.
 
 Don't edit the theme that is imported via the git submodule as otherwise your changes will be overwritten the next time the theme is updated. Changes should be made to files inside the root directory as this will correctly override the theme directory files. [Read the Hugo docs](https://gohugo.io/getting-started/directory-structure/) for more info.
+
+### Local testing
+
+Because subresource integrity doesn't work with file:// URLs, you need to
+remove `integrity=` attributes from CSS tags to get proper preview. Then you
+can render with a&nbsp;browser:
+
+```sh
+npm run build
+sed -i -e 's/ integrity="[^"]*"//g' $(find public -name \*.html)
+firefox public/index.html
+```
