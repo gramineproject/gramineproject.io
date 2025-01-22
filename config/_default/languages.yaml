@@ -2,7 +2,19 @@ en:
   languageName: English
   weight: 1
   ### copyright (markdown can be used) ###
-  copyright: "Copyright &copy; {{< current_year >}} Linux Foundation. All Rights Reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our [Trademark Usage page](https://www.linuxfoundation.org/legal/trademark-usage). Linux is a registered trademark of Linus Torvalds. [Privacy Policy](https://www.linuxfoundation.org/legal/privacy-policy) and [Terms of Use](https://www.linuxfoundation.org/legal/terms)."
+  copyright: |
+    <div>
+    Copyright &copy; 2021-{{< current_year >}} Gramine contributors.
+
+    Legal disclaimers, required by our sponsors:<br>
+    Any opinions, findings, and conclusions or recommendations expressed in
+    this material are ours alone, and do not necessarily reflect the views of
+    our sponsors. All product names, logos, and brands are property of their
+    respective owners. All company, product and service names used in this
+    website are for identification purposes only. Use of these names, logos,
+    and brands does not imply endorsement.
+    </div>
+
   title: "Gramine"
   params:
     description: "Site Description"

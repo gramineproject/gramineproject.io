@@ -62,3 +62,8 @@ Driving Graphene and ensuring its usability is part of Golem's commitment. Today
 {{< img src="/img/texas_am.svg" width=200 alt="Texas A&M logo" >}}
 {{< /column >}}
 {{< /columns >}}
+
+We thank the US National Science Foundation for supporting Gramine development
+with grant: [CNS-2244937: Collaborative Research: SaTC: TTP: Medium: Toward
+Complete, User-Friendly, and Trustworthy Confidential Computing with
+Gramine](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2244937)
