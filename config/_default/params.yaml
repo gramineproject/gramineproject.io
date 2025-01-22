@@ -12,7 +12,7 @@ custom_css: []
 images: ["/img/gramine-social.jpg"]
 
 github:
-  repo_url: "https://github.com/username/repo/blob/master"
+  repo_url: "https://github.com/gramineproject/gramineproject.io/blob/master"
   show_edit_link: true
 
 social_links:
@@ -20,10 +20,10 @@ social_links:
   discord: ""
   facebook: ""
   flickr: ""
-  github: "https://github.com/cncf/dot-org-hugo-theme"
+  github: "https://github.com/gramineproject/gramine"
   instagram: ""
   landscape: ""
-  linkedin: "https://www.linkedin.com/company/cloud-native-computing-foundation"
+  linkedin: ""
   mastodon: ""
   pinterest: ""
   rss: ""
